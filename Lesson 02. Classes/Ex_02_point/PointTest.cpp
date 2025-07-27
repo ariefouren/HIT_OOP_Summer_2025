@@ -19,9 +19,13 @@ int main()
     // This syntax calls the default constructor of the class Point.
 
     // Way 2: Default constructor using parentheses (C++98/03)
-    Point p2(); // This is NOT an object, but a function declaration! (most vexing parse)
+	Point p2 = Point(); // Object p2 is created using the default constructor
+	
+	// Below is an example of the most vexing parse problem:
+    Point p2(); // ! This is NOT an object, but a function declaration! (most vexing parse)
     // This line declares a function named p2 that returns a Point object and takes no parameters.
     // Avoid this syntax for object creation as it leads to the most vexing parse problem.
+
 
     // Way 3: Default constructor using braces (C++11)
     Point p3{}; // Object p3 is created using the default constructor (uniform initialization)

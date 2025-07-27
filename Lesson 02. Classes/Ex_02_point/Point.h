@@ -14,6 +14,9 @@ public:
                             // using an initialization list
                             // this simple constructor is implemented in the header file
                             // (not in a separate .cpp file)
+	// alternative default constructor:
+	// Point() : x{0}, y{0} {} // also valid, but uses uniform initialization
+	// instead of an initialization list
 
     Point(double xVal, double yVal) : x(xVal), y(yVal) {} 
                             // constructor with parameters
