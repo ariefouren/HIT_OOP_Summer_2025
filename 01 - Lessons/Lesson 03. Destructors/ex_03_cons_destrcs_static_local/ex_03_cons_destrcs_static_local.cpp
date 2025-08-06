@@ -7,10 +7,10 @@ using namespace std;
 class A {
 public:
     A(const char* name) : name(name) {
-        std::cout << "Constructor: " << name << std::endl;
+        cout << "Constructor: " << name << endl;
     }
     ~A() {
-        std::cout << "Destructor: " << name << std::endl;
+        cout << "Destructor: " << name << endl;
     }
 private:
     const char* name;
@@ -26,9 +26,9 @@ void function() {
 }
 
 int main() {
-    std::cout << "\nmain() starts" << std::endl;
+    cout << "\nmain() starts" << endl;
     function(); // Call the function to initialize the static local variable
     function(); // second call to function does not initialize the static local variable
-	cout << "\nmain() ends" << endl;
+    cout << "\nmain() ends" << endl;
     return 0;
 }
