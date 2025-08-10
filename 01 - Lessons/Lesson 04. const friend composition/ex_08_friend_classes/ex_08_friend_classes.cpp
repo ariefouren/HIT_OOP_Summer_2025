@@ -16,7 +16,7 @@ public:
     A(): privateVar(0) {}	// constructor
 	void print() const
     {
-	    cout << "class A object, count = " << privateVar << endl;
+	    cout << "class A object, privateVar = " << privateVar << endl;
     }
 
 private:
@@ -54,7 +54,7 @@ int main()
 {
 	A a;
 	B b;
-	cout << "Initially :               ";
+	cout << "Initially                            : ";
 	a.print();
 
 // since B is a friend of A, it can access private members of A

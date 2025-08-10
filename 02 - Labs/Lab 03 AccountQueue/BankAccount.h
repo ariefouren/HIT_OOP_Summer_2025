@@ -25,7 +25,7 @@ public:
 
 private:
     double balance;     // the balance of the account
-    int accountNumber;  // the account number
+    const int accountNumber;  // the account number
     char customerName[MAX_NAME_LENGTH]; // the customer name
     static int numberOfAccounts; // the number of accounts created
 };
