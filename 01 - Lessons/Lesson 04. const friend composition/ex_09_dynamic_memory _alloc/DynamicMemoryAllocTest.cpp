@@ -29,14 +29,23 @@ int main()
 
 	cout << "Creating an array of points: \n";
 	const int numPoints = 5;
-	Point* pointArr = new Point[numPoints];			// array of pointers
+	Point* pointArr = new Point[numPoints];			// array of points
 	// the points are created with the default constructor
+	cout << "\n\nAfter creating pointArr[]: \n";
+	for (int i = 0; i < numPoints; i++)
+	{
+		cout << "pointArr[" << i << "]: ";
+		pointArr[i].print();
+		cout << endl;
+	}
+
+	// set the values of the points in the array
 	for (int i = 0; i < numPoints; i++)
 	{
 		pointArr[i].setXY(i, i);
 	}
 
-	cout << "\n\nAfter creating pointArr[]: \n";
+	cout << "\nAfter setting pointArr[] values: \n";
 	for (int i = 0; i < numPoints; i++)
 	{
 		cout << "pointArr[" << i << "]: ";
