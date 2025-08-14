@@ -87,8 +87,12 @@ Matrix Matrix::transpose() const {
             // of the transposed matrix to the element at row j, column i of this matrix
         }
     }
-    // return the result matrix by value (creates a copy)
-    return result;
+	// return the result matrix by value 
+	// creates a copy using the copy constructor defined above
+	// otherwise, if shallow default copy constructor is used,
+    // after destruction of the local object, 
+	// the pointers of the returned object are invalid
+	return result;
 }
 
 

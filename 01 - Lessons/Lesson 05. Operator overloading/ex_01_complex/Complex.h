@@ -84,8 +84,8 @@ public:
     double getImaginary() const; 
 
 private:
-        double real;
-        double imaginary;
+        double re;
+        double im;
 };
 
 // Overloading << operator for printing complex numbers
