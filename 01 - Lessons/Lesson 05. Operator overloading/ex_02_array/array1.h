@@ -11,16 +11,22 @@ using std::istream;
 class Array {
    friend ostream &operator<<( ostream &, const Array & );
    friend istream &operator>>( istream &, Array & );
+
 public:
    
    Array( int = 10 );                   // default constructor
    Array( const Array & );              // copy constructor
+   
    ~Array();                            // destructor
-   const Array &operator=( const Array & ); // assign arrays
+   const Array &operator=( const Array & ); // assignment operator
+                                       // const return avoids: 
+                                       // ( a1 = a2 ) = a3
+									   // but allows a1 = ( a2 = a3 )
    
    bool operator==( const Array & ) const;  // compare equal
 
    int getSize() const;                 // return size
+
    // Determine if two arrays are not equal and
    // return true, otherwise return false (uses operator==).
    bool operator!=( const Array &right ) const  
@@ -29,9 +35,16 @@ public:
    int &operator[]( int );             // subscript operator, 
                                        // returns lvalue
                                        // allows modification of arr[i]
-   const int &operator[]( int ) const; // subscript operator, const
-                                       // version, returns rvalue
-                                       // (cannot be used as lvalue)
+									   // (e.g., arr[i] = x; or cin >> arr[i];)
+
+   const int &operator[]( int ) const;  // subscript operator, const
+                                        // version, returns rvalue
+                                        // (cannot be used as lvalue)
+	                                    // allows cout << arr[i];
+									    // but not cin >> arr[i];
+                                        // const version of subscript operator is used
+                                        // when the Array object is const
+
    operator int() // conversion to int type operator
    {
 	   return size;

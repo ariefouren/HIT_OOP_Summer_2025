@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Complex.cpp">
+    <ClCompile Include="..\..\ex_02_array\array1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\ComplexTest.cpp">
+    <ClCompile Include="..\..\ex_02_array\fig08_04.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Complex.h">
+    <ClInclude Include="..\..\ex_02_array\array1.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

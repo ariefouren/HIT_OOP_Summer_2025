@@ -8,7 +8,8 @@ using std::endl;
 
 #include <iomanip>
 
-using std::setw;
+using std::setw; // for setw function
+#define PRINT_WIDTH 10 // width for output
 
 #include <cstdlib>
 #include <cassert>      // for assert
@@ -20,10 +21,10 @@ int Array::arrayCount = 0;   // no objects yet
 // Default constructor for class Array (default size 10)
 Array::Array( int arraySize )
 {
-   size = ( arraySize > 0 ? arraySize : 10 ); 
-   ptr = new int[ size ]; // create space for array
-   assert( ptr != 0 );    // terminate if memory not allocated
-   ++arrayCount;          // count one more object
+	size = (arraySize > 0 ? arraySize : 10); // check for valid size
+	ptr = new int[size]; // dynamically allocate array
+    assert(ptr != nullptr);    // terminate if memory not allocated
+    ++arrayCount;          // count one more object
 
    for ( int i = 0; i < size; i++ )
       ptr[ i ] = 0;          // initialize array
@@ -33,8 +34,8 @@ Array::Array( int arraySize )
 // must receive a reference to prevent infinite recursion
 Array::Array( const Array &init ) : size( init.size )
 {
-   ptr = new int[ size ]; // create space for array
-   assert( ptr != 0 );    // terminate if memory not allocated
+   ptr = new int[size]; // dynamically allocate array
+   assert(ptr != nullptr);    // terminate if memory not allocated
    ++arrayCount;          // count one more object
 
    for ( int i = 0; i < size; i++ )
@@ -53,7 +54,7 @@ int Array::getSize() const { return size; }
 
 // Overloaded assignment operator
 // const return avoids: ( a1 = a2 ) = a3
-// but allows ( a1 = a2 ) = a2
+// but allows a1 = (a2 = a3)
 // the operator returns rval
 const Array &Array::operator=( const Array &right )
 {
@@ -134,7 +135,7 @@ ostream &operator<<( ostream &output, const Array &a )
    int i;
 
    for ( i = 0; i < a.size; i++ ) {
-      output << setw( 12 ) << a.ptr[ i ];
+      output << setw(PRINT_WIDTH) << a.ptr[ i ];
 
       if ( ( i + 1 ) % 4 == 0 ) // 4 numbers per row of output
          output << endl;
