@@ -10,7 +10,7 @@ using namespace std;
 
 class Complex {
     // Overloading >> operator
-    friend std::istream& operator>>(std::istream& is, Complex& complex);
+    friend istream& operator>>(istream& is, Complex& complex);
 
     // Postfix -- operator affecting the real part only
     friend Complex operator--(Complex& complex, int);
@@ -78,10 +78,10 @@ public:
     explicit operator string() const;
             
     // Function to get the real part of the complex number
-    double getReal() const;
+    double getRe() const;
     
     // Function to get the imaginary part of the complex number
-    double getImaginary() const; 
+    double getIm() const; 
 
 private:
         double re;
@@ -89,4 +89,4 @@ private:
 };
 
 // Overloading << operator for printing complex numbers
-ostream& operator<<(std::ostream& os, const Complex& complex);
+ostream& operator<<(ostream& os, const Complex& complex);

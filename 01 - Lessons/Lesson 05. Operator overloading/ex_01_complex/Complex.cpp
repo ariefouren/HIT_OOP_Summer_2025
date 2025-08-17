@@ -4,54 +4,53 @@
 // demonstrates operators' overloading
 //
 #include <iostream>
-#include <string>
-#include <sstream> //for std::ostringstream - printing complex numbers to string
+#include <string>  // for string class definition
+#include <sstream> // for ostringstream - printing to string
+#include <iomanip> // for setprecision                                                  
 #include "Complex.h"
 using namespace std;
 
-Complex::Complex(double re, double imaginary)
-    : real(re), imaginary(imaginary) {}
+// Constructor for Complex class
+Complex::Complex(double re, double im)
+    : re(re), im(im) {}
 
 
 // Cast operator to convert Complex to double (real part)
 Complex::operator double() const {
-    return this->real;
+    return this->re;
 }
 
 // explicit cast operator to convert Complex to string
-#include <iomanip> // Add this line to include the <iomanip> header file
-
 Complex::operator string() const
 {
-    ostringstream oss;
-    oss << fixed << setprecision(2); // Set 2 decimal places 
-
-    oss << "(" << real 
-        << (imaginary >= 0 ? " + " : " - ") // Add '+' if imaginary part is positive, else add '-'
-        << abs(imaginary) << "i)";  // Add the imaginary part
-    return oss.str(); // Return the string
-    
+	ostringstream oss; // Create an output string stream
+	oss << fixed << setprecision(2); // Set precision for floating-point numbers
+	// Format the complex number as a string
+    oss << "(" << re 
+        << (im >= 0 ? " + " : " - ") // Add '+' if im part is positive, else add '-'
+		<< abs(im) << "i)";  // Add the im part with 'i' suffix
+	return oss.str(); // Return the string representation of the complex number
 }
 
 // Overloading + operator for Complex + Complex
 Complex Complex::operator+(const Complex& other) const {
-    return Complex(this->real + other.real, this->imaginary + other.imaginary);
+    return Complex(this->re + other.re, this->im + other.im);
 }
 
 // Overloading - operator for Complex - Complex
 Complex Complex::operator-(const Complex& other) const {
-    return Complex(real - other.real, imaginary - other.imaginary);
+    return Complex(re - other.re, im - other.im);
 }
 
 // Overloading * operator for Complex * Complex
 Complex Complex::operator*(const Complex& other) const {
-    return Complex(real * other.real - imaginary * other.imaginary,
-        real * other.imaginary + imaginary * other.real);
+    return Complex(re * other.re - im * other.im,
+        re * other.im + im * other.re);
 }
 
 // Overloading == operator for Complex == Complex
 bool Complex::operator==(const Complex& other) const {
-    return (real == other.real) && (imaginary == other.imaginary);
+    return (re == other.re) && (im == other.im);
 }
 
 // Overloading != operator for Complex != Complex
@@ -59,92 +58,92 @@ bool Complex::operator!=(const Complex& other) const {
     return !(*this == other);
 }
 
-// Overloading + operator for Complex + Real
-Complex Complex::operator+(const double& realNum) const {
-    return Complex(real + realNum, imaginary);
+// Overloading + operator for Complex + re
+Complex Complex::operator+(const double& reNum) const {
+    return Complex(re + reNum, im);
 }
 
-// Overloading - operator for Complex - Real
-Complex Complex::operator-(const double& realNum) const {
-    return Complex(real - realNum, imaginary);
+// Overloading - operator for Complex - re
+Complex Complex::operator-(const double& reNum) const {
+    return Complex(re - reNum, im);
 }
 
-// Overloading * operator for Complex * Real
-Complex Complex::operator*(const double& realNum) const {
-    return Complex(real * realNum, imaginary * realNum);
+// Overloading * operator for Complex * re
+Complex Complex::operator*(const double& reNum) const {
+    return Complex(re * reNum, im * reNum);
 }
 
-// Overloading + operator for Real + Complex
-Complex operator+(const double& realNum, const Complex& complex) {
-    return complex + realNum; // Reuse the already defined operator
+// Overloading + operator for re + Complex
+Complex operator+(const double& reNum, const Complex& complex) {
+    return complex + reNum; // Reuse the already defined operator
 }
 
-// Overloading - operator for Real - Complex
-Complex operator-(const double& realNum, const Complex& complex) {
-    return Complex(realNum - complex.real, -complex.imaginary);
+// Overloading - operator for re - Complex
+Complex operator-(const double& reNum, const Complex& complex) {
+    return Complex(reNum - complex.re, -complex.im);
 }
 
-// Overloading * operator for Real * Complex
-Complex operator*(const double& realNum, const Complex& complex) {
-    return complex * realNum; // Reuse the already defined operator
+// Overloading * operator for re * Complex
+Complex operator*(const double& reNum, const Complex& complex) {
+    return complex * reNum; // Reuse the already defined operator
 }
 
-// Function to get the real part of the complex number
-double Complex::getReal() const {
-    return real;
+// Function to get the re part of the complex number
+double Complex::getRe() const {
+    return re;
 }
 
-// Function to get the imaginary part of the complex number
-double Complex::getImaginary() const {
-    return imaginary;
+// Function to get the im part of the complex number
+double Complex::getIm() const {
+    return im;
 }
 
-// Overloading / operator for Complex / Complex
+// Overloading / operator for Complex / Complex (division of two complex numbers)
 Complex Complex::operator/(const Complex& other) const {
-    double denominator = other.real * other.real + other.imaginary * other.imaginary;
-    double realPart = (real * other.real + imaginary * other.imaginary) / denominator;
-    double imagPart = (imaginary * other.real - real * other.imaginary) / denominator;
-    return Complex(realPart, imagPart);
+    double denominator = other.re * other.re + other.im * other.im;
+    double rePart = (re * other.re + im * other.im) / denominator;
+    double imagPart = (im * other.re - re * other.im) / denominator;
+    return Complex(rePart, imagPart);
 }
 
-// Overloading / operator for Complex / Real
-Complex Complex::operator/(const double& realNum) const {
-    return Complex(real / realNum, imaginary / realNum);
+// Overloading / operator for Complex / re
+Complex Complex::operator/(const double& reNum) const {
+    return Complex(re / reNum, im / reNum);
 }
 
-// Overloading / operator for Real / Complex
-Complex operator/(const double& realNum, const Complex& complex) {
-    double denominator = complex.real * complex.real + complex.imaginary * complex.imaginary;
-    double realPart = (realNum * complex.real) / denominator;
-    double imagPart = (-realNum * complex.imaginary) / denominator;
-    return Complex(realPart, imagPart);
+// Overloading / operator for re / Complex
+Complex operator/(const double& reNum, const Complex& complex) {
+    double denominator = complex.re * complex.re + complex.im * complex.im;
+    double rePart = (reNum * complex.re) / denominator;
+    double imagPart = (-reNum * complex.im) / denominator;
+    return Complex(rePart, imagPart);
 }
 
-// Prefix ++ operator affecting the real part only
+// Prefix ++ operator affecting the re part only
 Complex& Complex::operator++() {
-    ++real;
+    ++re;
     return *this;
 }
 
-// Postfix ++ operator affecting the real part only
+// Postfix ++ operator affecting the re part only
 Complex Complex::operator++(int) {
     Complex temp(*this);
-    ++real;
+    ++re;
     return temp;
 }
 
 
 
-// Postfix -- operator affecting the real part only (friend function)
+// Postfix -- operator affecting the re part only (friend function)
 Complex operator--(Complex& complex, int) {
     Complex temp(complex);
-    complex.real--;
+    complex.re--;
     return temp;
 }
 
-// Prefix -- operator affecting the real part only (friend function)
+// Prefix -- operator affecting the re part only (friend function)
 Complex& operator--(Complex& complex) {
-    --complex.real;
+    --complex.re;
     return complex;
 }
 // Overloading << operator for printing complex numbers
@@ -153,19 +152,19 @@ ostream& operator<<(ostream& os, const Complex& complex) {
     return os;
 }
 
-istream& operator>>(std::istream& is, Complex& complex) {
+istream& operator>>(istream& is, Complex& complex) {
     char sign;
-    is >> complex.real;
+    is >> complex.re;
     is >> sign;
     if (sign == '+') {
-        is >> complex.imaginary;
+        is >> complex.im;
     }
     else if (sign == '-') {
-        is >> complex.imaginary;
-        complex.imaginary = -complex.imaginary;
+        is >> complex.im;
+        complex.im = -complex.im;
     }
     else {
-        is.setstate(std::ios::failbit);
+        is.setstate(ios::failbit);
         return is;
     }
     if (is.peek() == 'i') // Check for 'i' at the end
