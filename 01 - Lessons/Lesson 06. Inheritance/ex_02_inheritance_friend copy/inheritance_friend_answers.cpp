@@ -18,13 +18,15 @@ private:
 
 void A::memberOfA(B& b)
 {
-    // member function of class A has access to the members of A
-    // in the object of the derived class B
+    // B inherits from A, so every B object contains an A subobject.
+    // member function of class A has access to A's protected 
+    // and private members of any A object, 
+    // including the A subobject inside  a B
     cout <<  b.prot_a; 
     cout <<  b.priv_a;  
 
-    // member function of class A has no access to the 
-    // private and protected members of the derived class B
+	// A::memberOfA() is not a member of B, so it cannot access
+	// B's private and protected members.
     cout <<  b.prot_b; // <-- error: 'int B::prot_b' is inaccessible here
     cout <<  b.priv_b;  // <-- error: 'int B::priv_b' is inaccessible here
 }
@@ -58,6 +60,7 @@ void B::memberOfB(A& a, B& b)
 {   
     // member function of class B has no access 
     // to the private and protected members of A 
+	// in the object of the base class A
     cout <<  a.prot_a; // <-- error: 'int A::prot_a' is inaccessible here
     cout <<  a.priv_a; // <-- error: 'int A::priv_a' is inaccessible here   
     

@@ -33,8 +33,10 @@ void A::memberOfA(B& b)
 // as the member functions of A
 void friendOfA(B& b)
 {
-    // friend function of class A has access to the members of A
-    // in the object of the derived class B
+    // B inherits from A, so every B object contains an A subobject.
+	// member function of class A has access to A's protected 
+	// and private members of any A object, 
+    // including the A subobject inside  a B
     cout <<  b.prot_a; 
     cout <<  b.priv_a;  
 
