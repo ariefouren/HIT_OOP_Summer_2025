@@ -27,5 +27,15 @@ namespace Less_10_ex_02_factorial
             }
             label2.Text = n + "! =" + fact;
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

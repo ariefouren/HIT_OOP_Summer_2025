@@ -36,5 +36,9 @@ namespace Less_10_ex_03_morgage
             
         }
 
+        private void mortgage_calc_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
