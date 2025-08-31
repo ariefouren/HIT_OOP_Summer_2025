@@ -21,5 +21,10 @@ namespace Less_10_ex_01_hello_world
         {
             outputLabel.Text = "Hello, World !";
         }
+
+        private void goButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

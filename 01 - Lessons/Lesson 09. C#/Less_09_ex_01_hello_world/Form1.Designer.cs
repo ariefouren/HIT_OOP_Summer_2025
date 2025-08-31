@@ -36,29 +36,33 @@ namespace Less_10_ex_01_hello_world
             // goButton
             // 
             this.goButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.goButton.Location = new System.Drawing.Point(155, 44);
+            this.goButton.Location = new System.Drawing.Point(199, 86);
+            this.goButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.goButton.Name = "goButton";
-            this.goButton.Size = new System.Drawing.Size(485, 88);
+            this.goButton.Size = new System.Drawing.Size(647, 110);
             this.goButton.TabIndex = 0;
             this.goButton.Text = "Go !";
             this.goButton.UseVisualStyleBackColor = true;
+            this.goButton.Click += new System.EventHandler(this.goButton_Click);
             this.goButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button1_MouseClick);
             // 
             // outputLabel
             // 
             this.outputLabel.AutoSize = true;
-            this.outputLabel.Location = new System.Drawing.Point(44, 146);
+            this.outputLabel.Location = new System.Drawing.Point(59, 182);
+            this.outputLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.outputLabel.Name = "outputLabel";
-            this.outputLabel.Size = new System.Drawing.Size(0, 20);
+            this.outputLabel.Size = new System.Drawing.Size(0, 25);
             this.outputLabel.TabIndex = 2;
             // 
             // helloWorld
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 562);
             this.Controls.Add(this.outputLabel);
             this.Controls.Add(this.goButton);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "helloWorld";
             this.Text = "Hello, World !";
             this.ResumeLayout(false);
