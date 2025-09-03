@@ -48,19 +48,20 @@ namespace Less_10_ex_03_morgage
             this.groupBoxType.Controls.Add(this.radioButtonFV);
             this.groupBoxType.Controls.Add(this.radioButtonPV);
             this.groupBoxType.Location = new System.Drawing.Point(660, 51);
-            this.groupBoxType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxType.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxType.Name = "groupBoxType";
-            this.groupBoxType.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxType.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxType.Size = new System.Drawing.Size(221, 160);
             this.groupBoxType.TabIndex = 0;
             this.groupBoxType.TabStop = false;
             this.groupBoxType.Text = "Choose PV or FV";
+            this.groupBoxType.Enter += new System.EventHandler(this.groupBoxType_Enter);
             // 
             // radioButtonFV
             // 
             this.radioButtonFV.AutoSize = true;
             this.radioButtonFV.Location = new System.Drawing.Point(25, 101);
-            this.radioButtonFV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonFV.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonFV.Name = "radioButtonFV";
             this.radioButtonFV.Size = new System.Drawing.Size(70, 29);
             this.radioButtonFV.TabIndex = 1;
@@ -72,7 +73,7 @@ namespace Less_10_ex_03_morgage
             // 
             this.radioButtonPV.AutoSize = true;
             this.radioButtonPV.Location = new System.Drawing.Point(25, 41);
-            this.radioButtonPV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonPV.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonPV.Name = "radioButtonPV";
             this.radioButtonPV.Size = new System.Drawing.Size(71, 29);
             this.radioButtonPV.TabIndex = 0;
@@ -83,7 +84,7 @@ namespace Less_10_ex_03_morgage
             // buttonCalculate
             // 
             this.buttonCalculate.Location = new System.Drawing.Point(653, 236);
-            this.buttonCalculate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonCalculate.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCalculate.Name = "buttonCalculate";
             this.buttonCalculate.Size = new System.Drawing.Size(228, 74);
             this.buttonCalculate.TabIndex = 1;
@@ -94,7 +95,7 @@ namespace Less_10_ex_03_morgage
             // textBoxRate
             // 
             this.textBoxRate.Location = new System.Drawing.Point(312, 62);
-            this.textBoxRate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxRate.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxRate.Name = "textBoxRate";
             this.textBoxRate.Size = new System.Drawing.Size(325, 31);
             this.textBoxRate.TabIndex = 2;
@@ -102,7 +103,7 @@ namespace Less_10_ex_03_morgage
             // textBoxNper
             // 
             this.textBoxNper.Location = new System.Drawing.Point(312, 149);
-            this.textBoxNper.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNper.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNper.Name = "textBoxNper";
             this.textBoxNper.Size = new System.Drawing.Size(325, 31);
             this.textBoxNper.TabIndex = 3;
@@ -110,7 +111,7 @@ namespace Less_10_ex_03_morgage
             // textBoxPmt
             // 
             this.textBoxPmt.Location = new System.Drawing.Point(312, 236);
-            this.textBoxPmt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPmt.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPmt.Name = "textBoxPmt";
             this.textBoxPmt.Size = new System.Drawing.Size(325, 31);
             this.textBoxPmt.TabIndex = 4;
@@ -169,7 +170,7 @@ namespace Less_10_ex_03_morgage
             this.Controls.Add(this.textBoxRate);
             this.Controls.Add(this.buttonCalculate);
             this.Controls.Add(this.groupBoxType);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "mortgage_calc";
             this.Text = "Mortgage and Savings Calculator";
             this.Load += new System.EventHandler(this.mortgage_calc_Load);

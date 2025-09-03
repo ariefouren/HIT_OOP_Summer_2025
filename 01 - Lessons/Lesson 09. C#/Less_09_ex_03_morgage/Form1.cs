@@ -40,5 +40,10 @@ namespace Less_10_ex_03_morgage
         {
 
         }
+
+        private void groupBoxType_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
