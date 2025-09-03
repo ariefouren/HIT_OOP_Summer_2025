@@ -27,7 +27,6 @@ namespace Polygons
 
         }
 
-
         // Event handler for painting the panel
         // happens when the panel needs to be redrawn
         // such as when it is resized or uncovered

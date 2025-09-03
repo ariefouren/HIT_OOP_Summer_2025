@@ -43,7 +43,7 @@ namespace Less_11_ex_02_graph
                     graph.AddVertex(newVertex);
                 }
                 else // vertex currentVertex is at the given point
-                {
+                {  // select the vertex
                     graph.SelectVertex(currentVertex);
                 }
                 
@@ -65,17 +65,21 @@ namespace Less_11_ex_02_graph
             }
             panelDraw.Invalidate();
         }
-               
 
+        // redraw the graph when the panel is repainted
+        // e.Graphics is the graphics object associated with the panel
         private void panelDraw_Paint(object sender, 
             PaintEventArgs e)
         {
             Graphics graphicsObject = e.Graphics;
+            // set high quality rendering
             graphicsObject.SmoothingMode = 
                 System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            // draw the graph on the graphics object
             graph.Draw(graphicsObject);
         }
 
+        // move the selected vertex by dragging it with the mouse
         private void panelDraw_MouseMove(object sender, MouseEventArgs e)
         {
             if (radioButtonVertices.Checked) // Vertex mode
@@ -98,20 +102,30 @@ namespace Less_11_ex_02_graph
             }
         }
 
+        // save the graph to a file
+        // using serialization
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            // creates an instance of the SaveFileDialog class,
+            // which provides a dialog for saving files
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.InitialDirectory = Directory.GetCurrentDirectory();
             saveFileDialog1.Filter = "model files (*.mdl)|*.mdl|All files (*.*)|*.*";
+            // set the default filter to the first filter option
             saveFileDialog1.FilterIndex = 1;
+            // ensures that the dialog box restores the current directory
             saveFileDialog1.RestoreDirectory = true;
+
+            // display the file dialog and check if the user clicked the "OK" button
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
+                // create an instance of the BinaryFormatter class,
                 IFormatter formatter = new BinaryFormatter();
                 // 'using' statement ensures that the object is disposed
                 // even if an exception occurs within the block of the using statement.
                 // specifically, the opened file is properly closed
                 // after it is processed.
+                // open the selected file in write mode using a 'FileStream'
                 using (Stream stream = new FileStream(saveFileDialog1.FileName, 
                     FileMode.Create,    // create a new file or overwrite an existing file
                     FileAccess.Write,   // enable writing to the file
@@ -125,6 +139,8 @@ namespace Less_11_ex_02_graph
             }
         }
 
+        // load the graph from a file
+        // using deserialization
         private void buttonOpen_Click(object sender, EventArgs e)
         {   // creates an instance of the OpenFileDialog class,
             // which provides a dialog for opening files
@@ -154,6 +170,11 @@ namespace Less_11_ex_02_graph
                 // update the displayed graph after loading its data from the file
                 panelDraw.Invalidate();
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 

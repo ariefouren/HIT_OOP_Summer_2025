@@ -11,8 +11,10 @@ namespace Less_11_ex_02_graph
         private int xPos;
         private int yPos;
         private int radius;
-        private string label;
-        private Rectangle boundingRectangle;
+        private string label; // vertex label that appears inside the vertex
+        private Rectangle boundingRectangle; // bounding rectangle of the vertex
+        // used for checking collisions and to capture mouse clicks
+
         private bool selected = false;
         private Color backgroundColor = Color.White;
         private Color borderColor = Color.Black;
@@ -25,12 +27,15 @@ namespace Less_11_ex_02_graph
             this.radius = radius;
             this.label = label;
 
+            // create bounding rectangle of the vertex
+            // the rectangle is defined by its top-left corner, width and height
             boundingRectangle = new Rectangle(xPos - radius,
                 yPos - radius,
                 2 * radius,
                 2 * radius);
         }
 
+        // draw the vertex on the graphics object
         public void Draw(Graphics graphicsObject)
         {
             // fill vertex background 
@@ -44,7 +49,8 @@ namespace Less_11_ex_02_graph
             // Set format of string.
             StringFormat stringFormat = new StringFormat();
             stringFormat.Alignment = StringAlignment.Center;
-            graphicsObject.DrawString(label, font, brush, location, stringFormat);
+            graphicsObject.DrawString(label, font, brush, 
+                location, stringFormat);
 
             // draw vertex border
             Pen pen = new Pen(borderColor);
@@ -71,11 +77,19 @@ namespace Less_11_ex_02_graph
                     2 * radius);
         }
 
+
+        // public property Selected
+        // provides controlled access to the private variable 'selected'
         public bool Selected
         {
+            // 'get' accessor returns the value of 'selected'
             get { return selected; }
+
+            // 'set' accessor sets the value of 'selected'
             set
-            {
+            { // 'value' is a keyword that represents the value
+                // being assigned to the property
+                // in set method
                 if (value == true)
                 {
                     selected = true;

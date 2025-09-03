@@ -10,9 +10,13 @@ namespace Less_11_ex_02_graph
     // and restored from file
     class MyGraph
     {
+        // list of vertices
         private List<Vertex> vertices = new List<Vertex>();
+
+        // adjacency list is a list of lists of integers
         private List<List<int>> adjacencyList = 
             new List<List<int>>();
+
         private int selectedVertex = -1;
         private Color edgesColor = Color.Black;
 
@@ -56,7 +60,7 @@ namespace Less_11_ex_02_graph
             {
                 vertices[selectedVertex].Selected = false;
             }
-            // select new vertex
+            // deselect any vertex
             selectedVertex = -1;
         }
 
@@ -68,6 +72,7 @@ namespace Less_11_ex_02_graph
             }
         }
 
+        // read-only property that returns index of selected vertex
         public int SelectedVertex
         {
             get
@@ -76,17 +81,18 @@ namespace Less_11_ex_02_graph
             }
         }
 
+        // check if there is an edge between vertices u and v
         public bool HasEdge(int uIndex, int vIndex)
         {
             if ((0 <= uIndex) && (uIndex < vertices.Count)
                 && (0 <= vIndex) && (vIndex < vertices.Count))
             {
+                // check if vIndex is in the adjacency list of uIndex
                 foreach (int vertexIndex in adjacencyList[uIndex])
                     if(vertexIndex == vIndex)
                         return true;
             }
-            return false;
-                
+            return false;                
         }
 
         public void AddEdge(int uIndex, int vIndex)
@@ -96,6 +102,8 @@ namespace Less_11_ex_02_graph
             {
                 if(! HasEdge(uIndex, vIndex))
                 {
+                    // add edge uIndex -> vIndex
+                    // by adding vIndex to the adjacency list of uIndex
                     adjacencyList[uIndex].Add(vIndex);
                 }
             }
