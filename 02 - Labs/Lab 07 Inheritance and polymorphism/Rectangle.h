@@ -10,7 +10,11 @@ class Rectangle : public Shape
 {
 public:
     Rectangle(); // default constructor
-    Rectangle(double x, double y, double width, double height); // constructor with parameters
+
+	// constructor with parameters
+	// (x, y) is the center of the rectangle
+    Rectangle(double x, double y, double width, double height);
+
     double area() const; // returns the area of the shape
     bool includes(const Point& p) const; // returns true if the shape includes the point p
     string toString() const; // returns a string representation of the shape
