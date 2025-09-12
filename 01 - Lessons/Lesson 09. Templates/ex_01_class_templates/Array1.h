@@ -27,6 +27,10 @@ class Array {
    template <class T>
         friend istream &operator>> ( istream &, Array<T> & );
 public:
+   // inside the template class definition, the class name 'Array'
+   // "this specialization", i.e. 'Array<T>' 
+   // thus we can use 'Array' instead of 'Array<T>' and
+   // 'Array &' instead of 'Array<T> &', etc. 
    Array( int = 10 );                   // default constructor
    Array( const Array & );              // copy constructor
    virtual ~Array();                            // destructor
@@ -69,7 +73,7 @@ Array<T>::Array(int arraySize)
     ++arrayCount;       // count one more object
 
     for (int i = 0; i < size; i++)
-        ptr[i] = T();  // default initialization for elements of type T
+        ptr[i] = T(); // default initialization for elements of type T
 // For built-in types, T() will initialize to 0 
 // (e.g., int() will be 0, float() will be 0.0, bool() will be false).
 // For user-defined types, T() will invoke the default constructor of type T.
@@ -108,7 +112,7 @@ int Array<T>::getSize() const { return size; }
 template <class T>
 const Array<T>& Array<T>::operator=(const Array& right)
 {
-    if (&right != this) {  // check for self-assignment
+    if (&right != this) {  // check for self-assignment 
 
        // for arrays of different sizes, deallocate original
        // left side array, then allocate new left side array.

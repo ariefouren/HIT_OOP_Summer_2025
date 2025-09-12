@@ -12,7 +12,7 @@ class Matrix {
     /*    
         // friend operator* template for matrix * scalar operation
         // operator*<T> is friend of Matrix<T> only
-        // parameter T here is the same s the class template parameter T
+        // parameter T here is the same as the class template parameter T
         friend Matrix<T> operator* <>(const T scalar, const Matrix<T>& m2);
     */
 
@@ -20,10 +20,10 @@ class Matrix {
         // is friend of Matrix<T> for any T
         friend Matrix<bool> operator* (const bool scalar, const Matrix<int>& m2);
 
-        // friend operator<< for output
-        // operator<<(ostream&, const Matrix<T>&) is friend of Matrix<T> for any T
-        template <class U>
-        friend ostream& operator<<(ostream& os, const Matrix<U>& m);
+		// the 'operator<< <T>' is a friend of Matrix<T> only 
+		// for the same parameter type T
+        template <class T>
+        friend ostream& operator<<(ostream& os, const Matrix<T>& m);
 
     public:
         Matrix(int rows, int cols);

@@ -27,14 +27,14 @@ int main()
 	cout << "quotient<double>(" << x << ", " << y << ") = "
 		<< quotient<double>(x, y) << endl; // double largest<double>(double, double)
 	cout << "quotient<int>(" << x << ", " << y << ") = "
-		<< quotient<int>(x, y) << endl << endl; // double largest<int>(double, double)
+		<< quotient<int>(x, y) << endl << endl; // double largest<int>(int, int)
 
 	/*
 	cout << "quotient(" << x << ", " << b << ") = "
-		<< quotient(x, b) << endl; // error: no instance of template matches the aregument list
+		<< quotient(x, b) << endl; // error: no instance of template matches the argument list
 
 	cout << "quotient(" << a << ", " << y << ") = "
-		<< quotient<int, double>(a, y) << endl; // error: no instance of template matches the aregument list
+		<< quotient<int, double>(a, y) << endl; // error: no instance of template matches the argument list
 	*/
 
 }

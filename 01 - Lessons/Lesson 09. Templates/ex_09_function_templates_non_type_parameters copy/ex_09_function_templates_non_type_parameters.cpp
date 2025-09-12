@@ -1,4 +1,4 @@
-// File: ex_08_function_templates_non_type_parameters.cpp
+// File: ex_09_function_templates_non_type_parameters.cpp
 // demonstrate the use of function templates with non-type parameters
 
 #define _USE_MATH_DEFINES 

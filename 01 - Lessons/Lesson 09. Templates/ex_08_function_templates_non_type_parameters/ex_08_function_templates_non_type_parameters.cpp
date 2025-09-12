@@ -27,9 +27,11 @@ int main()
 	double x = 100.0;
 
 	cout << "--- 1. Implicit deduction of the parameter type and the base ---" << endl;
+	// the type is deduced from the argument, the base is the default value 10
 	cout << "Log(a) = " << Log(a) << endl;
-	// the following line is error, because the base is not specified
-	// cout << "Log<10>(a) = " << Log<10>(a) << endl;
+	// the following line is error, because the first parameter 
+	// of the template should be a type, not a value
+	// cout << "Log<10>(a) = " << Log<10>(a) << endl; 
 
 	cout << endl;
 	cout << "--- 2. Explicit definition of the parameter type and the base ---" << endl;

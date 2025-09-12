@@ -10,6 +10,7 @@ int main()
     cout << "--- 1. Testing class Array<int> ---\n";
     // create <int> array
     Array<int> integers1(5);
+
     // fill integers1 with even integers
     for (int i = 0; i < integers1.getSize(); i++)
         integers1[i] = i * 2;
@@ -52,7 +53,7 @@ int main()
     Array<complex> complex1(5);
     // fill complex1 with complex numbers
     for (int i = 0; i < complex1.getSize(); i++)
-        complex1[i] = complex(i, i);
+        complex1[i] = complex(i, i); 
 
     Array<complex> complex2;
     cout << "complex1:\n" << complex1 << '\n';

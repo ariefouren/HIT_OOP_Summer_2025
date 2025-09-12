@@ -31,7 +31,7 @@ template <class T>
 class ArrayWithDefaultValue : public Array<T>
 {
 private:
-    U defaulValue;
+	U defaulValue; // error: U is undefined
 };
 
 template <class T>

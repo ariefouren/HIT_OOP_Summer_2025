@@ -31,13 +31,12 @@ int main()
 		<< largest<double>(x, y) << endl; // double largest<double>(double, double)
 
 	cout << "largest<int>(" << x << ", " << y << ") = "
-		<< largest<int>(x, y) << endl << endl; // double largest<int>(double, double)
-
+		<< largest<int>(x, y) << endl << endl; // OK: int largest<int>(int, int)
 	/*
 	cout << "largest(" << x << ", " << b << ") = "
 		<< largest(x, b) << endl; // error: no instance of template matches the argument list
 	*/ 
-	largest<int>(x, b);
+	largest<int>(x, b); //OK: largest<int>(int, int)
 	string s1 = "abc", s2 = "def";
 	cout << "largest(" << s1 << ", " << s2 << ") = "
 		<< largest(s1, s2) << endl; // string largest<string>(string, string)
