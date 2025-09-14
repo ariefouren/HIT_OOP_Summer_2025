@@ -40,4 +40,9 @@ int main(){
             elem *= -2;
         }
     }
+    cout << "Matrix after multipling  by -2: \n"; 
+    for (auto row : m) {
+        copy(row.begin(), row.end(), out_it);
+        cout << endl;
+    }
 }
