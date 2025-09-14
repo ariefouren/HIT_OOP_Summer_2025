@@ -10,7 +10,8 @@ int main() {
     cout << "Vector element manipulation" << endl << endl;
     cout << "--- 1. Creating a vector of integers ---" << endl;
     vector<int> v1 = {1, 2, 3, 4, 5, 6}; // create a vector of integers with 5 elements
-    vector<int> v2(v1.cbegin()+1, v1.cend()-2); // create a vector of integers with some of the elements of v1
+    vector<int> v2(v1.cbegin()+1, v1.cend()-2); // create a vector of integers
+    // with some of the elements of v1
     // v2 = {2, 3, 4}
     // create an ostream_iterator for printing, `\t`` is the separator
     ostream_iterator<int> out_it(cout, "\t"); 

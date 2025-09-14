@@ -42,7 +42,7 @@ int main() {
     cout << endl << endl;
 
     // remove_if does not remove elements from the vector, it just moves them to the end
-    // and returns an iterator pointing to the first element that was not removed
+    // and returns an iterator pointing to the first element that was has to be removed
     vector<int>::iterator it2 = remove_if(v1.begin(), v1.end(), GreaterOrEqualCondition(0));
     cout << "after remove_if(v1.begin(), v1.end(), GreaterOrEqualCondition(0))" << endl;
     cout << "v1: \t";
